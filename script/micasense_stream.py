@@ -35,7 +35,7 @@ import rospy
 from sensor_msgs.msg import CompressedImage
 
 #Declare the IP of the sensor
-ip="http://192.168.10.254"
+ip="http://192.168.1.83"
 rosRate=1
 #Read the GPS data from the camera
 #gps_data = requests.get('http://192.168.10.254/gps')
@@ -75,7 +75,7 @@ class micasense(object):
 	def pub_image(self,event=None):
 		self.index=[]
 		capture_params = { 'store_capture' : False, 'block' : True }
-		capture_data = requests.post("http://192.168.10.254/capture", json=capture_params)
+		capture_data = requests.post("http://192.168.1.83/capture", json=capture_params)
 		#print (capture_data.json())
 
 		info=capture_data.json()
